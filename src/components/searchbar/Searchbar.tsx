@@ -1,6 +1,6 @@
 import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
-import { TextField } from "@material-ui/core";
+import { TextField, InputAdornment } from "@material-ui/core";
 import { Container } from "./searchbarStyles";
 import { useStore } from "../../store/useStore";
 
@@ -11,17 +11,18 @@ export const Searchbar = () => {
 
   return (
     <Container>
-      <div>
-        <SearchIcon />
-      </div>
-
-      <div>
-        <TextField
-          label="Search"
-          value={searchTerm ?? ""}
-          onChange={handleChange}
-        />
-      </div>
+      <TextField
+        placeholder="Search"
+        value={searchTerm ?? ""}
+        onChange={handleChange}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
     </Container>
   );
 };

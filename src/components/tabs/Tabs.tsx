@@ -10,7 +10,7 @@ export const Tabs = () => {
 
   return (
     <>
-      <Paper>
+      <Paper style={{ marginBottom: "1rem" }}>
         <MuiTabs
           value={activeTab}
           onChange={(event: React.ChangeEvent<{}>, newValue: number) =>
@@ -19,7 +19,6 @@ export const Tabs = () => {
           indicatorColor="primary"
           textColor="primary"
           centered
-          style={{ marginBottom: "1rem" }}
         >
           <Tab label="Baeclast" />
           <Tab label="Ziz & Mathil" />
