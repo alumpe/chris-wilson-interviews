@@ -1,5 +1,5 @@
 import { createTheme } from "@material-ui/core/styles";
-
+import teal from "@material-ui/core/colors/teal";
 /**
  * Personalized MuiTheme.
  * @see {@link https://material-ui.com/customization/default-theme/#explore} for all options.
@@ -7,6 +7,7 @@ import { createTheme } from "@material-ui/core/styles";
 export const muiTheme = createTheme({
   palette: {
     type: "dark",
+    primary: teal,
   },
   typography: {
     button: {
