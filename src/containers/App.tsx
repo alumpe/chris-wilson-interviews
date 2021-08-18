@@ -8,12 +8,14 @@ import {
   AccordionDetails,
 } from "../components/accordion";
 import Typography from "@material-ui/core/Typography";
+import Navbar from "../components/navbar/Navbar";
 
 function App() {
   // const { seekTo, setVideoId } = usePlayer();
 
   return (
     <div className="App">
+      <Navbar />
       <YoutubePlayer />
 
       <Accordion>
