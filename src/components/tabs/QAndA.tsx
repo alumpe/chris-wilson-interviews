@@ -5,13 +5,18 @@ import { Button } from "../buttons";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import { usePlayer } from "../../utils/usePlayer";
 import { timeStringFromSeconds } from "../../utils/formatTime";
+import { useStore } from "../../store/useStore";
+import { getHighlightedText } from "../../utils/getHighlightedText";
+
+export type InterviewEntry = { time: number; question: string; answer: string };
 
 interface QAndAProps {
-  data: { time: number; question: string; answer: string }[];
+  data: InterviewEntry[];
 }
 
 export const QAndA = ({ data }: QAndAProps) => {
   const { seekTo } = usePlayer();
+  const { filterBySearch, searchTerm } = useStore();
 
   const handleButtonClick = (event: React.MouseEvent, time: number) => {
     event.stopPropagation();
@@ -20,10 +25,12 @@ export const QAndA = ({ data }: QAndAProps) => {
 
   return (
     <>
-      {data.map((block) => (
+      {filterBySearch(data).map((block) => (
         <Accordion>
           <AccordionSummary>
-            <Typography>{block.question}</Typography>
+            <Typography>
+              {getHighlightedText(block.question, searchTerm)}
+            </Typography>
             <Button
               startIcon={<PlayCircleFilledIcon />}
               size="small"

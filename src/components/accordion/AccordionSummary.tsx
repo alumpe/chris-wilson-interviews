@@ -18,5 +18,6 @@ export const AccordionSummary = styled(AccordionSummaryComponent)`
 
   ${Button} {
     margin-left: auto;
+    min-width: 6rem;
   }
 `;
