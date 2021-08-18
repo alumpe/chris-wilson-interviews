@@ -1,14 +1,10 @@
 import React from "react";
-import { usePlayer } from "../utils/usePlayer";
 import { YoutubePlayer } from "../components/player/YoutubePlayer";
 
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "../components/accordion";
-import Typography from "@material-ui/core/Typography";
 import Navbar from "../components/navbar/Navbar";
+import { Searchbar } from "../components/searchbar/Searchbar";
+import { Tabs } from "../components/tabs/Tabs";
+import { Right, Left, SplitView } from "../components/layout";
 
 function App() {
   // const { seekTo, setVideoId } = usePlayer();
@@ -16,19 +12,16 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <YoutubePlayer />
+      <SplitView>
+        <Left>
+          <YoutubePlayer />
+        </Left>
+        <Right>
+          <Searchbar />
 
-      <Accordion>
-        <AccordionSummary>
-          <Typography>Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <Tabs />
+        </Right>
+      </SplitView>
     </div>
   );
 }
