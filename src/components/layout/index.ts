@@ -13,13 +13,20 @@ export const Left = styled.div`
   justify-content: center;
 `;
 
-export const Right = styled.div``;
+export const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  overflow-y: auto;
+`;
 
 export const SplitView = styled.div`
   padding: 2rem;
   flex-grow: 1;
   grid-column-gap: 2rem;
   display: grid;
-  align-content: center;
   grid-template-columns: minmax(30rem, 40rem) minmax(40rem, auto);
+  overflow-y: auto;
 `;

@@ -42,7 +42,9 @@ export const QAndA = ({ data }: QAndAProps) => {
             </Button>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{block.answer}</Typography>
+            <Typography>
+              {getHighlightedText(block.answer, searchTerm)}
+            </Typography>
           </AccordionDetails>
         </Accordion>
       ))}

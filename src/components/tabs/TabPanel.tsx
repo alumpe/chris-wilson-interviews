@@ -1,23 +1,27 @@
 import React from "react";
+import styled from "styled-components";
 
-interface TabPanelProps {
+export interface TabPanelProps {
   children?: React.ReactNode;
-  index: any;
-  value: any;
+  index: number;
+  value: number;
 }
 
-export const TabPanel = (props: TabPanelProps) => {
-  const { children, value, index, ...other } = props;
-
+const TabPanelComponent = ({
+  children,
+  value,
+  index,
+  ...rest
+}: TabPanelProps) => {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`scrollable-auto-tabpanel-${index}`}
-      aria-labelledby={`scrollable-auto-tab-${index}`}
-      {...other}
-    >
-      {value === index && children}
+    <div role="tabpanel" hidden={value !== index} {...rest}>
+      {children}
     </div>
   );
 };
+
+export const TabPanel = styled(TabPanelComponent)`
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
