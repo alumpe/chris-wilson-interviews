@@ -19,6 +19,7 @@ export const Tabs = () => {
           indicatorColor="primary"
           textColor="primary"
           centered
+          style={{ marginBottom: "1rem" }}
         >
           <Tab label="Baeclast" />
           <Tab label="Ziz & Mathil" />

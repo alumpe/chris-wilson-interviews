@@ -4,26 +4,26 @@ import { YoutubePlayer } from "../components/player/YoutubePlayer";
 import Navbar from "../components/navbar/Navbar";
 import { Searchbar } from "../components/searchbar/Searchbar";
 import { Tabs } from "../components/tabs/Tabs";
-import { Right, Left, SplitView } from "../components/layout";
+import { Right, Left, SplitView, AppContainer } from "../components/layout";
 
-function App() {
-  // const { seekTo, setVideoId } = usePlayer();
+const App = () => (
+  <AppContainer>
+    <Navbar />
 
-  return (
-    <div className="App">
-      <Navbar />
-      <SplitView>
-        <Left>
+    <SplitView>
+      <Left>
+        <div>
           <YoutubePlayer />
-        </Left>
-        <Right>
-          <Searchbar />
+        </div>
+      </Left>
 
-          <Tabs />
-        </Right>
-      </SplitView>
-    </div>
-  );
-}
+      <Right>
+        <Searchbar />
+
+        <Tabs />
+      </Right>
+    </SplitView>
+  </AppContainer>
+);
 
 export default App;
