@@ -3,7 +3,8 @@ import { Paper, Tabs as MuiTabs, Tab } from "@material-ui/core";
 import { useStore } from "../../store/useStore";
 import { TabPanel } from "./TabPanel";
 import { QAndA } from "./QAndA";
-import BaeclastData from "../../interviews/baeclast.json";
+import BaeclastInterview from "../../interviews/baeclast.json";
+import ZizMathilInterview from "../../interviews/ziz_mathil.json";
 
 export const Tabs = () => {
   const { activeTab, setActiveTab } = useStore();
@@ -27,11 +28,11 @@ export const Tabs = () => {
       </Paper>
 
       <TabPanel value={activeTab} index={0}>
-        <QAndA data={BaeclastData} />
+        <QAndA data={BaeclastInterview} />
       </TabPanel>
 
       <TabPanel value={activeTab} index={1}>
-        Coming soon
+        <QAndA data={ZizMathilInterview} />
       </TabPanel>
 
       <TabPanel value={activeTab} index={2}>

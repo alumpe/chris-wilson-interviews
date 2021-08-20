@@ -1,17 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import YouTube from "react-youtube";
-import { usePlayer } from "../../utils/usePlayer";
+import { useStore } from "../../store/useStore";
+import BaeclastInterview from "../../interviews/baeclast.json";
 
 interface YoutubePlayerProps {
   className?: string;
 }
 
 const YoutubePlayerComponent = ({ className }: YoutubePlayerProps) => {
-  const { player, videoId } = usePlayer();
+  const { player, setVideoId } = useStore();
 
   return (
-    <YouTube containerClassName={className} videoId={videoId} ref={player} />
+    <YouTube
+      containerClassName={className}
+      ref={player}
+      onReady={() => setVideoId(BaeclastInterview.videoId)}
+    />
   );
 };
 
